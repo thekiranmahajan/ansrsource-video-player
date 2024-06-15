@@ -5,6 +5,8 @@ const theaterScreenBtn = document.querySelector(".theater-screen-btn");
 const fullScreenBtn = document.querySelector(".full-screen-btn");
 const volumeBtn = document.querySelector(".volume-btn");
 const volumeSlider = document.querySelector(".volume-slider");
+const currentTimeSpan = document.getElementById("current-time");
+const totalTimeSpan = document.getElementById("total-time");
 const videoContainer = document.querySelector(".video-container");
 const video = document.getElementById("video");
 
@@ -119,4 +121,33 @@ video.addEventListener("volumechange", () => {
     volumeLevel = "low";
   }
   videoContainer.dataset.volumeLevel = volumeLevel;
+});
+
+//Timeline / Duration
+// a constructor fn which formats a given value forced 2 digit e.g. input 1 === 01 and input 10 === 10.
+const leadingZeroFormatter = new Intl.NumberFormat(undefined, {
+  minimumIntegerDigits: 2,
+});
+
+//formats time and return the str based on the hour's presence and absence
+const formatDuration = (time) => {
+  const seconds = Math.floor(time % 60);
+  const minutes = Math.floor(time / 60) % 60;
+  const hours = Math.floor(time / 3600);
+  if (hours === 0) {
+    return `${minutes}:${leadingZeroFormatter.format(seconds)}`;
+  } else {
+    return `${hours}:${leadingZeroFormatter.format(
+      minutes
+    )}:${leadingZeroFormatter.format(seconds)}`;
+  }
+};
+
+//get the total duration of video after loading whole data and insert it with formating into the span tag
+video.addEventListener("loadeddata", () => {
+  totalTimeSpan.textContent = formatDuration(video.duration);
+});
+
+video.addEventListener("timeupdate", () => {
+  currentTimeSpan.textContent = formatDuration(video.currentTime);
 });

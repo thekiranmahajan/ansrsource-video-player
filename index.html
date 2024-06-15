@@ -44,7 +44,6 @@
     <main>
       <section class="video-container paused" data-volume-level="high">
         <div class="video-controls-container">
-          <div class="timeline-container"></div>
           <div class="controls">
             <button class="play-pause-btn">
               <svg
@@ -119,6 +118,10 @@
                 step="any"
                 value="1"
               />
+            </div>
+            <div class="timeline-container">
+              <span id="current-time">00:00</span>/
+              <span id="total-time">10:00</span>
             </div>
             <button class="mini-screen-btn">
               <svg
