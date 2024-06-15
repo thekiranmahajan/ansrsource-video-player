@@ -25,7 +25,10 @@ main {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 0.5rem;
   overflow: hidden;
+  transition: width ease-in-out 200ms;
 }
+
+/* add diff. w & h when having theater or full-screen class on video-container */
 .video-container.full-screen,
 .video-container.theater {
   max-width: initial;
@@ -97,13 +100,26 @@ video {
   opacity: 1;
 }
 
-/* hide pause icon when container has paused class*/
+/* Toggle icon based on a class's presence*/
+
 .video-container.paused .pause-icon {
   display: none;
 }
 
-/* hide play icon when container NOT has paused class*/
-
 .video-container:not(.paused) .play-icon {
+  display: none;
+}
+.video-container.theater .enter-theater-icon {
+  display: none;
+}
+
+.video-container:not(.theater) .exit-theater-icon {
+  display: none;
+}
+.video-container.full-screen .enter-full-icon {
+  display: none;
+}
+
+.video-container:not(.full-screen) .exit-full-icon {
   display: none;
 }
