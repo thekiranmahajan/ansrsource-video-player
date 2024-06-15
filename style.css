@@ -124,7 +124,7 @@ video {
   display: none;
 }
 
-/* conditionally show or hide volume level icons based-on data attr. */
+/* conditionally show or hide volume level icons based-on data attr. injected on video-container section */
 .volume-high-icon,
 .volume-low-icon,
 .volume-mute-icon {
@@ -139,4 +139,23 @@ video {
 }
 .video-container[data-volume-level="mute"] .volume-mute-icon {
   display: block;
+}
+
+.volume-container {
+  display: flex;
+  align-items: center;
+}
+/* hide and show volume slider with a delay and transition same as youtube video player */
+.volume-slider {
+  width: 0;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: width ease-in-out 150ms, transform ease-in-out 150ms;
+}
+
+/* if volume-container is hovered && slider is focused by TAB apply below styles */
+.volume-container:hover .volume-slider,
+.volume-slider:focus-within {
+  width: 5rem;
+  transform: scaleX(1);
 }
