@@ -3,9 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <meta
+      name="description"
+      content="A feature-rich video player with custom speed control, accessibility features, and smooth UI transitions."
+    />
+    <meta
+      name="keywords"
+      content="Video Player, Audio Player, HTML5, CSS3, JavaScript, Custom Playback Speed, Responsive Design"
+    />
+    <meta name="author" content="Kiran Mahajan" />
+
     <title>
       JsPlay: a JavaScript based Video Player with additional functionalities
     </title>
+    <!-- OG tags -->
+    <meta
+      property="og:title"
+      content="JsPlay: a JavaScript based Video Player with additional functionalities"
+    />
+    <meta
+      property="og:description"
+      content="A custom-built video player using HTML, CSS, and JavaScript. Enjoy features like custom playback speed control, volume adjustments, and different viewing modes."
+    />
+    <meta
+      property="og:image"
+      content="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    />
+    <meta
+      property="og:url"
+      content="https://ansrsource-video-player.vercel.app"
+    />
+    <meta property="og:type" content="website" />
 
     <!-- Favicon -->
     <link
@@ -46,6 +76,7 @@
         <div class="video-controls-container">
           <div class="timeline-container">
             <input
+              aria-label="Timeline Bar"
               class="timeline-slider"
               type="range"
               min="0"
@@ -55,7 +86,7 @@
             />
           </div>
           <div class="controls">
-            <button class="play-pause-btn">
+            <button class="play-pause-btn" aria-label="Play or Pause">
               <svg
                 class="play-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +113,7 @@
               </svg>
             </button>
             <div class="volume-container">
-              <button class="volume-btn">
+              <button class="volume-btn" aria-label="Mute and Unmute">
                 <svg
                   class="volume-high-icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -121,6 +152,7 @@
                 </svg>
               </button>
               <input
+                aria-label="Volume Control"
                 class="volume-slider"
                 type="range"
                 min="0"
@@ -134,7 +166,10 @@
               <span id="total-time">10:00</span>
             </div>
             <button class="speed-btn wide-space">1x</button>
-            <button class="mini-screen-btn">
+            <button
+              class="mini-screen-btn"
+              aria-label="Picture In Picture Mode"
+            >
               <svg
                 class="mini-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -148,7 +183,7 @@
                 />
               </svg>
             </button>
-            <button class="theater-screen-btn">
+            <button class="theater-screen-btn" aria-label="Theater Mode">
               <svg
                 class="enter-theater-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -174,7 +209,7 @@
                 />
               </svg>
             </button>
-            <button class="full-screen-btn">
+            <button class="full-screen-btn" aria-label="Full Screen Mode">
               <svg
                 class="enter-full-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -202,7 +237,7 @@
             </button>
           </div>
         </div>
-        <video id="video">
+        <video id="video" aria-label="video-player">
           <source src="./assets/assignment-01.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
