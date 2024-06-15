@@ -23,10 +23,21 @@ main {
   max-width: 1000px;
   background-color: #333;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
+.video-container.full-screen,
+.video-container.theater {
+  max-width: initial;
+  width: 100%;
+}
+.video-container.theater {
+  max-height: 90vh;
+}
 
+.video-container.full-screen {
+  max-height: 100vh;
+}
 video {
   width: 100%;
 }
@@ -42,6 +53,18 @@ video {
   transition: opacity ease-in-out 150ms;
 }
 
+/* Overlay to make controls more visible */
+.video-controls-container::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  width: 100%;
+  aspect-ratio: 6 / 1;
+  z-index: -1;
+  pointer-events: none;
+}
+
 /* if hovered/has paused class/tab on video-container show video-controls-container */
 .video-container:hover .video-controls-container,
 .video-container:focus-within .video-controls-container,
@@ -52,7 +75,7 @@ video {
 .video-controls-container .controls {
   display: flex;
   align-items: center;
-  gap: 5rem;
+  gap: 1rem;
   padding: 0.25rem;
 }
 
