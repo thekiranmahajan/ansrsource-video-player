@@ -7,8 +7,13 @@ const videoContainer = document.querySelector(".video-container");
 const video = document.getElementById("video");
 
 document.addEventListener("keydown", (e) => {
+  // to avoid unwanted click while typing in input field getting focused element(TAB)
+  const tagName = document.activeElement.tagName.toLowerCase();
+  if (tagName === "input") return;
   switch (e.key.toLowerCase()) {
     case " ":
+      if (tagName === "button") return; // if focused ele. is btn then return
+
     case "k":
       togglePlay();
       break;
