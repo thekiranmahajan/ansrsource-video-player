@@ -11,9 +11,12 @@ This project is a comprehensive video player built from scratch using HTML, CSS,
 - **Custom Icons and Google Fonts:** Incorporation of Google Fonts and Icons for a modern and clean look.
 - **Smooth Transitions:** CSS transitions for a seamless and engaging user experience.
 - **Responsive Design:** The player adjusts gracefully to different screen sizes, ensuring usability across devices (desktop, tablet, mobile).
-- **SEO & OG Tags and Semantic Tags:** The HTML Structure levarages the HTML5 syntax and improves SEO as well as uses Semantic tags.
+- **SEO & OG Tags and Semantic Tags:** The HTML Structure leverages the HTML5 syntax and improves SEO as well as uses Semantic tags.
 
 ### Preview
+
+![image](https://github.com/thekiranmahajan/ansrsource-video-player/assets/91893931/cfc364c0-1574-4b8e-8ece-105e2165b26f)
+
 
 ### Live Demo
 
