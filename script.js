@@ -28,6 +28,9 @@ document.addEventListener("keydown", (e) => {
     case "i":
       toggleMiniScreenMode();
       break;
+    case "m":
+      toggleMute();
+      break;
   }
 });
 
