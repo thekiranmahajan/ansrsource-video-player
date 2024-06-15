@@ -123,3 +123,20 @@ video {
 .video-container:not(.full-screen) .exit-full-icon {
   display: none;
 }
+
+/* conditionally show or hide volume level icons based-on data attr. */
+.volume-high-icon,
+.volume-low-icon,
+.volume-mute-icon {
+  display: none;
+}
+
+.video-container[data-volume-level="high"] .volume-high-icon {
+  display: block;
+}
+.video-container[data-volume-level="low"] .volume-low-icon {
+  display: block;
+}
+.video-container[data-volume-level="mute"] .volume-mute-icon {
+  display: block;
+}
