@@ -3,6 +3,8 @@ const playPauseBtn = document.querySelector(".play-pause-btn");
 const miniScreenBtn = document.querySelector(".mini-screen-btn");
 const theaterScreenBtn = document.querySelector(".theater-screen-btn");
 const fullScreenBtn = document.querySelector(".full-screen-btn");
+const volumeBtn = document.querySelector(".volume-btn");
+const volumeSlider = document.querySelector(".volume-slider");
 const videoContainer = document.querySelector(".video-container");
 const video = document.getElementById("video");
 
@@ -85,3 +87,33 @@ document.addEventListener("fullscreenchange", () => {
 });
 
 fullScreenBtn.addEventListener("click", toggleFullScreenMode);
+
+// Volume Levels
+
+// just muting and unmuting the video
+const toggleMute = () => {
+  video.muted = !video.muted;
+};
+volumeBtn.addEventListener("click", toggleMute);
+
+// changing the slider range based on current video.volume
+volumeSlider.addEventListener("input", (e) => {
+  video.volume = e.target.value;
+  video.muted = e.target.value === 0;
+});
+
+video.addEventListener("volumechange", () => {
+  volumeSlider.value = video.volume; // making both equal visual and actual volume
+
+  // getting diff. volume states  and at last changing the dataset attr. value to the calculated value of volumeLevel to change styles and icons
+  let volumeLevel;
+  if (video.muted || video.volume === 0) {
+    volumeSlider.value = 0;
+    volumeLevel = "mute";
+  } else if (video.volume > 0.5) {
+    volumeLevel = "high";
+  } else {
+    volumeLevel = "low";
+  }
+  videoContainer.dataset.volumeLevel = volumeLevel;
+});
