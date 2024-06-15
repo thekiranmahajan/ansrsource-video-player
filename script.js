@@ -3,11 +3,21 @@ const playPauseBtn = document.querySelector(".play-pause-btn");
 const videoContainer = document.querySelector(".video-container");
 const video = document.getElementById("video");
 
+document.addEventListener("keydown", (e) => {
+  switch (e.key.toLowerCase()) {
+    case " ":
+    case "k":
+      togglePlay();
+      break;
+  }
+});
+
+
+
 // Fn to play & pause video
 const togglePlay = () => {
   video.paused ? video.play() : video.pause();
 };
-
 playPauseBtn.addEventListener("click", togglePlay);
 
 // Listening events on video and toggling class of videoContainer
