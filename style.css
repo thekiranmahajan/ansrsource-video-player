@@ -3,3 +3,84 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+}
+.video-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-inline: auto;
+  width: 90%;
+  max-width: 1000px;
+  background-color: #333;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+video {
+  width: 100%;
+}
+
+.video-controls-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  opacity: 0;
+  color: white;
+  transition: opacity ease-in-out 150ms;
+}
+
+/* if hovered/has paused class/tab on video-container show video-controls-container */
+.video-container:hover .video-controls-container,
+.video-container:focus-within .video-controls-container,
+.video-container.paused .video-controls-container {
+  opacity: 1;
+}
+
+.video-controls-container .controls {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  padding: 0.25rem;
+}
+
+/* remove default styles of btns and add hard coded h & w for svg aspect ratio */
+.video-controls-container .controls button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  height: 30px;
+  width: 30px;
+  font-size: 1.1rem;
+  opacity: 0.45;
+  transition: opacity ease-in-out 150ms;
+}
+
+.video-controls-container .controls button:hover {
+  opacity: 1;
+}
+
+/* hide pause icon when container has paused class*/
+.video-container.paused .pause-icon {
+  display: none;
+}
+
+/* hide play icon when container NOT has paused class*/
+
+.video-container:not(.paused) .play-icon {
+  display: none;
+}
