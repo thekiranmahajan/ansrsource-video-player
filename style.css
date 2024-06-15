@@ -251,3 +251,10 @@ video {
     width: 2rem;
   }
 }
+
+@media only screen and (max-height: 500px) and (orientation: landscape) {
+  body {
+    overflow: auto;
+    height: 130vh;
+  }
+}
