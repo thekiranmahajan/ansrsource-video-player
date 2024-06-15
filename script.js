@@ -33,6 +33,14 @@ document.addEventListener("keydown", (e) => {
     case "m":
       toggleMute();
       break;
+    case "j":
+    case "arrowleft":
+      skipTime(-5);
+      break;
+    case "l":
+    case "arrowright":
+      skipTime(5);
+      break;
   }
 });
 
@@ -151,3 +159,9 @@ video.addEventListener("loadeddata", () => {
 video.addEventListener("timeupdate", () => {
   currentTimeSpan.textContent = formatDuration(video.currentTime);
 });
+
+// Fn to skip the time backward and forward on keypress
+const skipTime = (duration) => {
+  video.currentTime += duration;
+  // console.log(video.currentTime);
+};
