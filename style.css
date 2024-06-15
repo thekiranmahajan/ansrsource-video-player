@@ -169,6 +169,50 @@ video {
 }
 
 /* adding a hardcoded spacing for speed btn */
-.video-controls-container .controls button.wide-space{
+.video-controls-container .controls button.wide-space {
   width: 50px;
 }
+
+/* using the in-built range input as slider for forward and backward video moments */
+.timeline-container {
+  padding: 0 0.5rem;
+  position: absolute;
+  width: 100%;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-slider {
+  flex-grow: 1;
+  height: 0.25rem;
+  cursor: pointer;
+  /* appearance: none;
+  background: #cd4a66;
+  border-radius: 0.2rem; */
+}
+
+/* custom thumb support accross browsers
+.timeline-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all ease-in-out 150ms;
+}
+.timeline-slider::-webkit-slider-thumb:hover {
+  width: 1rem;
+  height: 1rem;
+}
+.timeline-slider::-moz-range-thumb {
+  appearance: none;
+  width: 0.8rem;
+  height: 0.8rem;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all ease-in-out 150ms;
+} */

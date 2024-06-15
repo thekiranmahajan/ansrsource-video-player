@@ -6,6 +6,7 @@ const fullScreenBtn = document.querySelector(".full-screen-btn");
 const volumeBtn = document.querySelector(".volume-btn");
 const speedBtn = document.querySelector(".speed-btn");
 const volumeSlider = document.querySelector(".volume-slider");
+const timelineSlider = document.querySelector(".timeline-slider");
 const currentTimeSpan = document.getElementById("current-time");
 const totalTimeSpan = document.getElementById("total-time");
 const videoContainer = document.querySelector(".video-container");
@@ -177,3 +178,21 @@ const changePlaybackSpeed = () => {
   speedBtn.textContent = `${newPlaybackRate}x`;
 };
 speedBtn.addEventListener("click", changePlaybackSpeed);
+
+// Timeline
+// Update timeline max value once video metadata is loaded
+video.addEventListener("loadedmetadata", () => {
+  timelineSlider.max = video.duration;
+  totalTimeSpan.textContent = formatDuration(video.duration);
+});
+
+// Update timeline value as the video plays
+video.addEventListener("timeupdate", () => {
+  timelineSlider.value = video.currentTime;
+  currentTimeSpan.textContent = formatDuration(video.currentTime);
+});
+
+// Seek the video when the timeline is changed
+timelineSlider.addEventListener("input", () => {
+  video.currentTime = timelineSlider.value;
+});
