@@ -4,6 +4,7 @@ const miniScreenBtn = document.querySelector(".mini-screen-btn");
 const theaterScreenBtn = document.querySelector(".theater-screen-btn");
 const fullScreenBtn = document.querySelector(".full-screen-btn");
 const volumeBtn = document.querySelector(".volume-btn");
+const speedBtn = document.querySelector(".speed-btn");
 const volumeSlider = document.querySelector(".volume-slider");
 const currentTimeSpan = document.getElementById("current-time");
 const totalTimeSpan = document.getElementById("total-time");
@@ -165,3 +166,14 @@ const skipTime = (duration) => {
   video.currentTime += duration;
   // console.log(video.currentTime);
 };
+
+// **Playback speed**: the feature the only feature i supposed to customize but i learnt a lot creating everything from scratch :)
+
+// stores the current playback rate of video +0.25 in newPlaybackRate and keeps increamenting on every call till ===2 then it makes it to again 0.25 and assigns this rate to the video's rate at the same time it injects text to the btn
+const changePlaybackSpeed = () => {
+  let newPlaybackRate = video.playbackRate + 0.25;
+  if (newPlaybackRate > 2) newPlaybackRate = 0.25;
+  video.playbackRate = newPlaybackRate;
+  speedBtn.textContent = `${newPlaybackRate}x`;
+};
+speedBtn.addEventListener("click", changePlaybackSpeed);

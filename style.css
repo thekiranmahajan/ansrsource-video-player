@@ -161,9 +161,14 @@ video {
   transform: scaleX(1);
 }
 
-.timeline-container {
+.duration-container {
   display: flex;
   align-items: center;
   gap: 0.25rem;
   flex-grow: 1;
+}
+
+/* adding a hardcoded spacing for speed btn */
+.video-controls-container .controls button.wide-space{
+  width: 50px;
 }
